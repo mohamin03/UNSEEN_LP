@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNSEEN｜メンバー募集</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      nav.classList.toggle("active");
+    }
+
+    function openTermsModal() {
+      document.getElementById('terms-modal').style.display = 'flex';
+    }
+
+    function closeTermsModal() {
+      document.getElementById('terms-modal').style.display = 'none';
+    }
+
+    window.addEventListener('click', function (e) {
+      const modal = document.getElementById('terms-modal');
+      if (e.target === modal) {
+        closeTermsModal();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="images/LOGO.png" alt="UNSEEN ロゴ" class="logo-image">
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="site-nav" id="navMenu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.html#about">UNSEENとは</a></li>
+        <li><a href="index.html#services">サービス</a></li>
+        <li><a href="works.html">実績</a></li>
+        <li><a href="index.html#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- リクルートセクション -->
+  <section class="recruit-section">
+    <div class="recruit-inner">
+      <h1 class="recruit-title">メンバー募集</h1>
+      <p class="recruit-lead">
+        UNSEENでは、一緒にクリエイティブ活動ができる仲間を募集しています。<br>
+        経験の有無は問いません。<br>
+        成長したい方、ご応募お待ちしております。
+      </p>
+
+      <form action="https://formsubmit.io/send/あなたのメールアドレス" method="POST" class="recruit-form">
+        <label for="name">お名前（必須）</label>
+        <input type="text" id="name" name="お名前" required>
+
+        <label for="email">メールアドレス（必須）</label>
+        <input type="email" id="email" name="メールアドレス" required>
+
+        <label for="portfolio">SNSやポートフォリオURL（任意）</label>
+        <input type="url" id="portfolio" name="ポートフォリオ">
+
+        <label for="skills">得意分野・スキル（必須）</label>
+        <input type="text" id="skills" name="得意分野・スキル" placeholder="例：動画編集、撮影、デザイン、イラスト…" required>
+
+        <label for="availability">稼働可能な時間帯・頻度（任意）</label>
+        <input type="text" id="availability" name="稼働時間帯" placeholder="例：平日夜、土日メイン、週10hなど">
+
+        <label for="message">自己紹介・活動歴・アピールなど（任意）</label>
+        <textarea id="message" name="自己紹介" rows="5" placeholder="簡単でOKです！"></textarea>
+
+        <div class="terms-wrapper">
+          <button type="button" class="terms-btn" onclick="openTermsModal()">利用規約を確認</button>
+          <label><input type="checkbox" required> 利用規約を確認・同意しました</label>
+        </div>
+
+        <button type="submit" class="submit-btn">送信</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 利用規約モーダル -->
+  <div id="terms-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeTermsModal()">×</span>
+      <h2>利用規約</h2>
+      <p>UNSEENは、ジャンルを問わず、クリエイティブ分野で活躍を目指す個人クリエイターに実案件の機会と成長のきっかけを提供するチームです。以下の内容をご確認のうえ、同意いただける方のみご応募ください。</p><br>
+
+      <p><strong>■ 1. 契約形態について</strong><br>UNSEENに参加いただいた方との関係は、雇用契約ではなく、案件ごとの業務委託契約に基づいて発注いたします。</p><br>
+
+      <p><strong>■ 2. 案件紹介と報酬について</strong><br>UNSEEN運営がディレクター兼クライアント窓口として統括し、クリエイターにはその案件を報酬明示のうえ業務委託の形式でご依頼します。案件ごとに提示された報酬は、紹介・進行管理費として10％を差し引いた金額となります。あらかじめご了承ください。</p><br>
+
+      <p><strong>■ 3. クライアントとの直接連絡について</strong><br>案件によっては、キックオフミーティング後にクライアントと直接やり取りしていただく場合があります。ただし、UNSEENを通じて知り合ったクライアントに対し、無断での直営業・直契約行為は原則禁止とさせていただきます。一定の信頼関係・実績が構築された場合は、直契約への移行も歓迎しています。その際は一言ご相談ください。</p><br>
+
+      <p><strong>■ 4. 実績掲載・ポートフォリオ使用について</strong><br>UNSEENでは、納品された成果物をWebサイトやSNSで紹介する場合があります。名前や担当内容（例：グラフィックデザイン、執筆、撮影など）のクレジット表記を行うことがあります。顔出し・実名出しNGの場合は事前にご連絡ください。また、UNSEENでは実績公開可能の案件のみを扱っているため、制作物をご自身のポートフォリオに掲載することも可能です（守秘義務に反しない範囲で）。</p><br>
+
+      <p><strong>■ 5. トラブル対応について</strong><br>案件進行中に問題やトラブルが発生した場合は、速やかにUNSEEN運営までご連絡ください。内容に応じて仲介・調整を行います。ただし、業務委託の特性上、UNSEENが法的責任を負うものではありませんのでご了承ください。</p>
+    </div>
+  </div>
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-logo">UNSEEN</p>
+    <p class="footer-copy">&copy; 2025 UNSEEN. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>

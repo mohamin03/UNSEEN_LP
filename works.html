@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNSEEN｜制作実績</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      nav.classList.toggle("active");
+    }
+
+    function openModal(id) {
+      document.getElementById('modal').style.display = 'flex';
+      document.querySelectorAll('.youtube-frame').forEach(frame => {
+        frame.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+      document.querySelectorAll('iframe').forEach(iframe => {
+        iframe.src = iframe.src; // 再読み込みで停止
+      });
+    }
+
+    window.addEventListener('click', function(e) {
+      const modal = document.getElementById('modal');
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="images/LOGO.png" alt="UNSEEN ロゴ" class="logo-image">
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="site-nav" id="navMenu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+<li><a href="index.html#about">UNSEENとは</a></li>
+<li><a href="index.html#services">サービス</a></li>
+<li><a href="works.html">実績</a></li>
+<li><a href="index.html#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 実績セクション -->
+  <h2 class="section-title">制作実績</h2>
+  <div class="works-grid">
+    <div class="work-card" onclick="openModal('youtube1')">
+      <img src="images/1.png" alt="実績1">
+      <h3>タイトル1</h3>
+      <p>一言説明1</p>
+    </div>
+    <div class="work-card" onclick="openModal('youtube2')">
+      <img src="images/2.png" alt="実績2">
+      <h3>タイトル2</h3>
+      <p>一言説明2</p>
+    </div>
+  </div>
+
+  <!-- モーダル -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <div id="youtube1" class="youtube-frame">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/動画ID1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div id="youtube2" class="youtube-frame">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/動画ID2" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-logo">UNSEEN</p>
+    <p class="footer-copy">&copy; 2025 UNSEEN. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

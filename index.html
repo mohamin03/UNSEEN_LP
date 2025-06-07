@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNSEEN</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="images/LOGO.png" alt="UNSEEN ロゴ" class="logo-image">
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="site-nav" id="navMenu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+<li><a href="index.html#about">UNSEENとは</a></li>
+<li><a href="index.html#services">サービス</a></li>
+<li><a href="works.html">実績</a></li>
+<li><a href="index.html#contact">お問い合わせ</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+
+
+
+<!-- ヒーローセクション -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">まだ見ぬ才能と作る<br>最高の一本。</h1>
+    <p class="hero-subtitle">
+      “予算がない”を理由に諦めない。<br>
+      “実績がない”を理由に埋もれさせない。
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- 悩みセクション -->
+<section class="worry">
+  <div class="worry-inner">
+    <h2 class="section-title">映像制作で、こんなことで悩んでいませんか？</h2>
+    <ul class="worry-list">
+      <li>映像を作りたいけど、予算が限られている</li>
+      <li>フリーランスに頼んだら、途中で音信不通になった</li>
+      <li>映像制作会社に頼むほどでもない気がする</li>
+      <li>相談しながら柔軟に進めてくれる人がいい</li>
+      <li>若手クリエイターに頼んでみたいけど、探し方がわからない</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- UNSEENとは セクション -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <h2 class="section-title">UNSEENならその悩み<br>解決できるかもしれません。</h2>
+    <p class="about-text">
+      UNSEENは、実績を積みたいクリエイターによるチームです。<br><br>
+
+      「実績がないと仕事がもらえない」<br>
+      「ポートフォリオに使えない案件ばかり」<br>
+      そんな悩みを抱えるクリエイターたちが、<br>
+
+      <strong>"本気の1本"</strong>
+
+      を通して未来を切り開くために集まりました。<br><br>
+
+      依頼者にとっては、コストを抑えながらも情熱を注いだ1本が手に入り、<br>
+      クリエイターにとっては、大切な実績になる1本が生まれる。<br><br>
+
+      それが、UNSEENのしくみです。
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- サービス紹介 セクション -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <h2 class="section-title">提供可能なサービス一覧</h2>
+    <p class="section-subtitle">UNSEENの所属クリエイターの対応可能サービスです。</p>
+
+    <div class="service-cards">
+      <div class="service-card">
+        <img src="images/service-video.png" alt="映像制作">
+        <h3>映像制作</h3>
+      </div>
+      <div class="service-card">
+        <img src="images/service-hp.png" alt="HP作成">
+        <h3>HP作成</h3>
+      </div>
+      <div class="service-card">
+        <img src="images/service-voice.png" alt="ナレーション">
+        <h3>ナレーション</h3>
+      </div>
+      <div class="service-card">
+        <img src="images/service-comingsoon.png" alt="COMING SOON">
+        <h3>COMING SOON</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- 実績紹介バナー -->
+<section class="works-preview" id="works">
+  <a href="works.html" class="works-banner-link">
+    <div class="works-banner-wrapper">
+      <img src="images/works-banner.png" alt="実績を見る" class="works-banner-image">
+      <div class="works-banner-text">実績はコチラ</div>
+    </div>
+  </a>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- JS：メニュー開閉 -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navMenu");
+    const body = document.body;
+    nav.classList.toggle("active");
+    body.classList.toggle("menu-open");
+  }
+
+  // ナビ内のリンクをクリックしたらメニュー閉じる
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("#navMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navMenu").classList.remove("active");
+        document.body.classList.remove("menu-open");
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+<section class="flow" id="flow">
+  <div class="flow-inner">
+    <h2 class="section-title">制作の流れ</h2>
+    <p class="section-subtitle">ご相談から納品までの流れをご紹介します。<br>はじめての方でも安心してご利用いただけます。</p>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-icon">📩</div>
+        <h3 class="step-title">①お問い合わせ</h3>
+        <p class="step-text">お問い合わせフォームからご相談ください。</p>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-icon">💡</div>
+        <h3 class="step-title">②ヒアリング・ご提案</h3>
+        <p class="step-text">ご希望を伺い、最適なプランをご提案します。</p>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-icon">🎬</div>
+        <h3 class="step-title">③制作開始</h3>
+        <p class="step-text">内容にご納得いただけましたら、制作を開始します。</p>
+      </div>
+
+      <div class="flow-step">
+        <div class="step-icon">📦</div>
+        <h3 class="step-title">④納品</h3>
+        <p class="step-text">完成した商品を納品します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <h2 class="section-title">よくある質問</h2>
+
+    <div class="faq-item">
+      <p><span class="faq-q">Q.</span> 本当にこんな価格で頼めるんですか？</p>
+      <p><span class="faq-a">A.</span> 実績を積みたいクリエイターが多く在籍しているため、相場よりも抑えた価格で対応できることがあります。</p>
+      <hr class="faq-divider">
+    </div>
+
+    <div class="faq-item">
+      <p><span class="faq-q">Q.</span> どんなジャンルの動画が依頼できますか？</p>
+      <p><span class="faq-a">A.</span> SNS用ショート、インタビュー、MV、店舗プロモーションなど、幅広く対応可能です。</p>
+      <hr class="faq-divider">
+    </div>
+
+    <div class="faq-item">
+      <p><span class="faq-q">Q.</span> クオリティは大丈夫？</p>
+      <p><span class="faq-a">A.</span> 案件はすべて「公開可能」が前提なので、クリエイターは実績作りとして本気で取り組みます。</p>
+      <hr class="faq-divider">
+    </div>
+
+    <div class="faq-item">
+      <p><span class="faq-q">Q.</span> 途中で連絡が取れなくなったりしませんか？</p>
+      <p><span class="faq-a">A.</span> 運営が間に入り、やり取りや進行をサポートします。トラブル時も対応いたします。</p>
+      <hr class="faq-divider">
+    </div>
+
+    <div class="faq-item">
+      <p><span class="faq-q">Q.</span> 制作物は非公開にしてほしいのですが…</p>
+      <p><span class="faq-a">A.</span> 恐れ入りますが、UNSEENでは「実績を公開できること」を前提条件としています。実績を作りたいクリエイターが集まるチームのため、ご理解いただけますと幸いです。</p>
+      <hr class="faq-divider">
+    </div>
+
+    <div class="faq-item">
+      <p><span class="faq-q">Q.</span> UNSEENで動画制作を依頼するメリットは何ですか？</p>
+      <p><span class="faq-a">A.</span> 実績を積みたいクリエイターが集まっているため、クオリティの高い作品がリーズナブルな価格で手に入ります。</p>
+      <hr class="faq-divider">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <h2 class="section-title">お問い合わせ</h2>
+    <form action="https://formsubmit.io/send/wanriben@gmail.com" method="POST">
+
+      <label for="name">お名前<span style="color:red;">*</span></label>
+      <input type="text" id="name" name="お名前" required>
+
+      <label for="email">メールアドレス<span style="color:red;">*</span></label>
+      <input type="email" id="email" name="メールアドレス" required>
+
+      <label for="category">要件<span style="color:red;">*</span></label>
+      <select id="category" name="要件" required>
+        <option value="">選択してください</option>
+        <option value="制作依頼">制作依頼</option>
+        <option value="相談したい">相談したい</option>
+        <option value="その他">その他</option>
+      </select>
+
+      <label for="message">簡単な概要（任意）</label>
+      <textarea id="message" name="概要" rows="5"></textarea>
+
+      <button type="submit" class="submit-button">送信する</button>
+    </form>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="recruit-banner">
+  <a href="recruit.html" class="recruit-banner-inner">
+    <img src="images/recruit-banner.png" alt="メンバー募集バナー">
+    <div class="recruit-text">
+      <h2>メンバー募集中！！</h2>
+    </div>
+  </a>
+</section>
+
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-logo">UNSEEN</p>
+    <p class="footer-copy">&copy; 2025 UNSEEN. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+</html>
