@@ -833,7 +833,6 @@ body.menu-open {
 
 
 /* メンバー募集バナー */
-
 .recruit-banner {
   width: 100%;
   position: relative;
@@ -843,6 +842,7 @@ body.menu-open {
 .recruit-banner-inner {
   display: block;
   position: relative;
+  width: 100%;
 }
 
 .recruit-banner-inner img {
@@ -851,6 +851,7 @@ body.menu-open {
   display: block;
 }
 
+/* 文字中央配置 */
 .recruit-text {
   position: absolute;
   top: 50%;
@@ -859,10 +860,11 @@ body.menu-open {
   color: white;
   font-size: 2rem;
   font-weight: bold;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   text-align: center;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
+
 
 
 
