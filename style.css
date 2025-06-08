@@ -40,14 +40,14 @@ body.menu-open {
 }
 
 .menu-toggle {
-  font-size: 1.5rem;
+  font-size: 2rem;         /* アイコンのサイズを大きくする */
+  padding: 1rem;           /* タップ領域を広げる */
   background: none;
   border: none;
-  color: #111;
   cursor: pointer;
-  z-index: 1001;
-  position: relative;
+  z-index: 1001;           /* 上に出す（必要なら） */
 }
+
 
 /* ドロワーメニュー（スマホ） */
 .site-nav {
@@ -833,85 +833,36 @@ body.menu-open {
 
 
 /* メンバー募集バナー */
+
 .recruit-banner {
-  position: relative;
-  margin-top: 3rem;
-  max-width: 800px;       /* 横幅の上限 */
-  height: 200px;           /* ← ここで縦幅調整 */
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.recruit-banner img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% -20%; /* ← 横50%・縦20%を表示の中心に */
-  display: block;
-}
-
-
-
-.recruit-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 0;
-}
-
-
-.recruit-text h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.recruit-link {
-  background: white;
-  color: black;
-  padding: 0.5rem 1.5rem;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
 .recruit-banner-inner {
+  display: block;
   position: relative;
-  width: 100%;
-  height: 100%;
 }
 
-.recruit-banner-inner::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.recruit-banner-inner img {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* ←黒のオーバーレイ（透明度40%） */
-  z-index: 1;
+  height: auto;
+  display: block;
 }
 
-/* オーバーレイより上に文字を表示するためにz-indexを指定 */
 .recruit-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
   color: white;
-  z-index: 2; /* ←オーバーレイより上に */
   font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  z-index: 1;
 }
-
-
-
-
 
 
 
@@ -958,6 +909,7 @@ body.menu-open {
   border-radius: 0.25rem;
   width: 100%;
 }
+
 
 /* チェックボックスのサイズ調整（縦並び） */
 .terms-wrapper {
@@ -1096,7 +1048,7 @@ body.menu-open {
 /* スマホ向け：画面幅が768px以下の場合 */
 @media screen and (max-width: 768px) {
   html {
-    font-size: 60%; /* デフォルトの1rem=10px → 6pxに */
+    font-size: 70%; /* デフォルトの1rem=10px → 6pxに */
   }
 
   body {
