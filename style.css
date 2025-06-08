@@ -867,7 +867,7 @@ body.menu-open {
 
 @media screen and (max-width: 768px) {
   .recruit-text h2 {
-    font-size: 1.2rem;  /* ここを調整してちょうどよくする */
+    font-size: 0.8rem;  /* ここを調整してちょうどよくする */
     white-space: nowrap; /* 改行を防ぐ（必要なら） */
   }
 }
