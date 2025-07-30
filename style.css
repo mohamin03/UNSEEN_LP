@@ -448,15 +448,38 @@ body.menu-open {
 
 
 
+/* YOUTUBEスタートダッシュプランバナー */
+.youtube-start-plan {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ffffff; /* 必要に応じて背景色変更 */
+}
 
+.youtube-plan-image {
+  width: 70%;
+  max-width: 800px; /* 必要に応じて調整 */
+  height: auto;
+  border-radius: 8px;
+}
 
+.youtube-button {
+  display: block; /* ← 横並びを防ぐためブロック化 */
+  margin: 20px auto 0; /* ← 上に余白、中央寄せ */
+  padding: 12px 24px;
+  background-color: #e53935;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 999px;
+  width: fit-content; /* ボタン幅は文字に合わせる */
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
 
-
-
-
-
-
-
+.youtube-button:hover {
+  background-color: #d32f2f;
+}
 
 
 
@@ -1047,6 +1070,7 @@ body.menu-open {
 .site-footer .footer-copy {
   opacity: 0.7;
 }
+
 
 
 
