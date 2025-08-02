@@ -1086,8 +1086,6 @@ body.menu-open {
 }
 
 
-
-
 @media screen and (max-width: 768px) {
   html {
     font-size: 87.5%; /* ≒14px（元が16px）に統一して全体を縮小 */
@@ -1145,7 +1143,5 @@ body.menu-open {
     font-size: 0.95rem;
   }
 }
-
-
 
 
