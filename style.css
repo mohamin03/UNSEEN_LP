@@ -1078,30 +1078,33 @@ body.menu-open {
 
 
 
-/* スマホだけで表示させる（幅が768px以下の時） */
-@media screen and (max-width: 768px) {
-  .sp-only {
-    display: inline;
-  }
-}
-
-
 @media screen and (max-width: 768px) {
   html {
-    font-size: 87.5%; /* ≒14px（元が16px）に統一して全体を縮小 */
+    font-size: 87.5%; /* 約14px */
+    -webkit-text-size-adjust: 100%; /* Safari対策 */
   }
 
-  h1, h2, h3 {
-    font-size: 1.2rem;
-    line-height: 1.4;
-    word-break: keep-all;
-  }
-
-  p, li, .section-subtitle, .hero-subtitle,
-  .about-text, .worry-list li, .step-text, .faq-item p {
+  /* 本文・リスト・段落などの文章系 */
+  body,
+  p,
+  li,
+  .about-text,
+  .faq-item p,
+  .worry-list li,
+  .section-subtitle,
+  .hero-subtitle {
     font-size: 0.9rem;
-    line-height: 1.6;
-    word-break: keep-all;
+    line-height: 1.7;
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
+  }
+
+  /* タイトル系 */
+  h1, h2, h3, .section-title {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    word-break: normal;
   }
 
   .hero-title {
@@ -1109,39 +1112,32 @@ body.menu-open {
     line-height: 1.4;
   }
 
-  .section-title {
-    font-size: 1.3rem;
-  }
-
-  .youtube-button {
-    font-size: 0.95rem;
-    padding: 10px 20px;
-  }
-
+  /* ボタン・フォーム系 */
+  .youtube-button,
   .submit-button,
   .terms-btn,
   .recruit-text h2 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    white-space: normal;
   }
 
-  /* 改行させたくない部分を明示的に制御 */
-  .nowrap {
-    white-space: nowrap;
-  }
-
-  /* メンバー募集バナーのテキスト補強（既に対応済みだけど補足） */
-  .recruit-text {
-    font-size: 1.2rem;
-    white-space: nowrap;
-  }
-
-  /* 各フォーム用フォントサイズ */
   input,
   select,
   textarea,
   button {
     font-size: 0.95rem;
   }
+
+  /* 改行させたくない用 */
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  /* sp-only 表示 */
+  .sp-only {
+    display: inline;
+  }
 }
+
 
 
