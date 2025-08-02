@@ -1074,18 +1074,28 @@ body.menu-open {
 
 
 
-
-
-
-
 @media screen and (max-width: 768px) {
   html {
-    font-size: 87.5%; /* 約14px */
-    -webkit-text-size-adjust: 100%; /* Safari対策 */
+    font-size: 87.5%;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+    max-width: 100vw;
+  }
+
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
   }
 
   /* 本文・リスト・段落などの文章系 */
-  body,
   p,
   li,
   .about-text,
@@ -1128,53 +1138,22 @@ body.menu-open {
     font-size: 0.95rem;
   }
 
-  /* 改行させたくない用 */
+  /* 改行させたくない部分には class="nowrap" を使う */
   .nowrap {
     white-space: nowrap;
   }
 
-  /* sp-only 表示 */
-  .sp-only {
-    display: inline;
-  }
-}
-
-
-@media screen and (max-width: 768px) {
-  /* ボックスが親幅からはみ出すのを防ぐ */
-  .hero-content,
-  .section-title,
-  .about-text,
-  .recruit-text,
-  .flow-step,
-  .faq-item,
-  .youtube-button {
+  /* 横はみ出し防止：構造的なセクション */
+  .worry-inner,
+  .faq-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
     max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: normal;
-    white-space: normal;
   }
 
-  /* 特に横スクロールが発生する要素に */
-  body {
+  .worry,
+  .faq {
     overflow-x: hidden;
-  }
-}
-
-/* ========== 強制はみ出し防止 & 横スクロール封じ ========== */
-@media screen and (max-width: 768px) {
-  html, body {
-    overflow-x: hidden; /* 横スクロール封じ */
-  }
-
-  * {
-    max-width: 100vw; /* どんな要素でも画面から出ないように */
-    box-sizing: border-box; /* パディングやボーダー含めて100%幅に抑える */
-  }
-
-  img, video, iframe {
-    max-width: 100%;
-    height: auto;
   }
 
   .hero-content,
@@ -1189,11 +1168,10 @@ body.menu-open {
     overflow-wrap: break-word;
     word-break: normal;
     white-space: normal;
+    max-width: 100%;
   }
 
-  .nowrap {
-    white-space: nowrap;
+  .sp-only {
+    display: inline;
   }
 }
-
-
