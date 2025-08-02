@@ -1140,4 +1140,26 @@ body.menu-open {
 }
 
 
+@media screen and (max-width: 768px) {
+  /* ボックスが親幅からはみ出すのを防ぐ */
+  .hero-content,
+  .section-title,
+  .about-text,
+  .recruit-text,
+  .flow-step,
+  .faq-item,
+  .youtube-button {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: normal;
+    white-space: normal;
+  }
+
+  /* 特に横スクロールが発生する要素に */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
 
