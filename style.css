@@ -1086,12 +1086,64 @@ body.menu-open {
 }
 
 
+
+
 @media screen and (max-width: 768px) {
-  .section-title.nowrap-sm {
-    font-size: 1.6rem;
+  html {
+    font-size: 87.5%; /* ≒14px（元が16px）に統一して全体を縮小 */
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+
+  p, li, .section-subtitle, .hero-subtitle,
+  .about-text, .worry-list li, .step-text, .faq-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .youtube-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .submit-button,
+  .terms-btn,
+  .recruit-text h2 {
+    font-size: 1rem;
+  }
+
+  /* 改行させたくない部分を明示的に制御 */
+  .nowrap {
     white-space: nowrap;
   }
-}
 
+  /* メンバー募集バナーのテキスト補強（既に対応済みだけど補足） */
+  .recruit-text {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  /* 各フォーム用フォントサイズ */
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 0.95rem;
+  }
+}
 
 
