@@ -7,16 +7,36 @@
   <meta name="description" content="UNSEENは、若手クリエイターと映像制作をマッチングするサービスです。予算や実績にとらわれず、最高の一本を共に作ります。">
   <link rel="stylesheet" href="style.css" />
   <link rel="canonical" href="https://unseen-creative.jp/" />
+
+  <!-- OGP -->
   <meta property="og:title" content="UNSEEN | 映像制作とYouTube支援">
   <meta property="og:description" content="UNSEENは、若手クリエイターと映像制作をマッチングするサービスです。">
   <meta property="og:image" content="https://unseen-creative.jp/images/ogp.png">
   <meta property="og:url" content="https://unseen-creative.jp/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="UNSEEN">
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="UNSEEN | 映像制作とYouTube支援">
   <meta name="twitter:description" content="UNSEENは、若手クリエイターと映像制作をマッチングするサービスです。">
   <meta name="twitter:image" content="https://unseen-creative.jp/images/ogp.png">
+
+  <style>
+    .nowrap { white-space: nowrap; }
+    .sp-only { display: none; }
+    .sp-break { white-space: nowrap; }
+
+    @media screen and (max-width: 768px) {
+      .sp-only { display: inline; }
+      .sp-break { white-space: normal; }
+
+      .section-title {
+        font-size: 5.5vw;
+        line-height: 1.5;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -40,16 +60,16 @@
   <section class="hero">
     <div class="hero-content">
       <h1 class="hero-title">まだ見ぬ才能と作る<br>最高の一本。</h1>
-      <p class="hero-subtitle">
-        “予算がない”を理由に諦めない。<br>
-        “実績がない”を理由に埋もれさせない。
-      </p>
+      <p class="hero-subtitle">“予算がない”を理由に諦めない。<br>“実績がない”を理由に埋もれさせない。</p>
     </div>
   </section>
 
   <section class="worry">
     <div class="worry-inner">
-      <h2 class="section-title">動画制作でこんなことで<br class="mobile-break">お悩みはありませんか？</h2>
+      <h2 class="section-title">
+        <span class="sp-break">動画制作でこんなことで</span><br class="sp-only">
+        <span class="sp-break">お悩みはありませんか？</span>
+      </h2>
       <ul class="worry-list">
         <li>映像を作りたいけど、予算が限られている</li>
         <li>フリーランスに頼んだら、途中で音信不通になった</li>
@@ -62,14 +82,13 @@
 
   <section class="about" id="about">
     <div class="about-inner">
-      <h2 class="section-title">UNSEENならその悩み<br class="mobile-break">解決できるかもしれません。</h2>
+      <h2 class="section-title">UNSEENならその悩み<br>解決できるかもしれません。</h2>
       <p class="about-text">
         UNSEENは、実績を積みたいクリエイターによるチームです。<br><br>
         「実績がないと仕事がもらえない」<br>
         「ポートフォリオに使えない案件ばかり」<br>
         そんな悩みを抱えるクリエイターたちが、<br>
-        <strong>"本気の1本"</strong>
-        を通して未来を切り開くために集まりました。<br><br>
+        <strong>"本気の1本"</strong>を通して未来を切り開くために集まりました。<br><br>
         依頼者にとっては、コストを抑えながらも<br>
         情熱を注いだ1本が手に入り、クリエイターにとっては、大切な実績になる1本が生まれる。<br>
         それが、UNSEENのしくみです。
@@ -111,14 +130,21 @@
     </a>
   </section>
 
+
+
+
+
+
+
+
   <section class="youtube-start-plan">
     <div class="youtube-plan-inner">
-      <img src="images/1page.jpg" alt="YouTubeスタートダッシュプラン" class="youtube-plan-image">
-      <a href="youtube/" class="youtube-button">
-        詳細は<span class="nowrap">コチラ！</span>
-      </a>
+      <img src="../images/1page.jpg" alt="YouTubeスタートダッシュプラン" class="youtube-plan-image">
+      <a href="youtube/" class="youtube-button">詳細は<span class="nowrap">コチラ！</span></a>
     </div>
   </section>
+
+
 
 <section class="faq" id="faq">
   <div class="faq-inner">
@@ -208,6 +234,11 @@
     </a>
   </section>
 
+
+
+
+
+
   <footer class="site-footer">
     <div class="footer-inner">
       <p class="footer-logo">UNSEEN</p>
@@ -222,6 +253,7 @@
       nav.classList.toggle("active");
       body.classList.toggle("menu-open");
     }
+
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll("#navMenu a").forEach(link => {
         link.addEventListener("click", () => {
