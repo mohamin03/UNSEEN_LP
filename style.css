@@ -1077,29 +1077,6 @@ body.menu-open {
 
 
 
-/* スマホ向け：画面幅が768px以下の場合 */
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 70%; /* デフォルトの1rem=10px → 6pxに */
-  }
-
-  body {
-    line-height: 1.6; /* 行間も少し余裕もたせると読みやすい */
-  }
-}
-
-
-
-
-/* 最初は常に非表示にしておく */
-.sp-only {
-  display: none;
-}
-
-.nowrap {
-  white-space: nowrap;
-}
-
 
 /* スマホだけで表示させる（幅が768px以下の時） */
 @media screen and (max-width: 768px) {
