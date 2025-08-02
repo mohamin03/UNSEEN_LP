@@ -114,6 +114,11 @@ body.menu-open {
   position: relative;
 }
 
+.hero {
+  margin-top: 70px;
+}
+
+
 
 .hero::before {
   content: "";
@@ -479,6 +484,7 @@ body.menu-open {
   z-index: 1000;
   border-bottom: 1px solid #ccc;
 }
+
 
 
 .header-inner {
