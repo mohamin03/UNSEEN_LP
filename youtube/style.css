@@ -111,11 +111,5 @@ footer small {
   color: #666;
 }
 
-@media screen and (max-width: 768px) {
-  body.youtube-page {
-    font-size: 70%;
-    line-height: 1.6;
-  }
-}
 
 
