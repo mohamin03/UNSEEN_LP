@@ -1086,4 +1086,12 @@ body.menu-open {
 }
 
 
+@media screen and (max-width: 768px) {
+  .section-title.nowrap-sm {
+    font-size: 1.6rem;
+    white-space: nowrap;
+  }
+}
+
+
 
