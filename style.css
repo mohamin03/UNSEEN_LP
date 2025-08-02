@@ -1086,19 +1086,4 @@ body.menu-open {
 }
 
 
-.pc-only {
-  display: inline;
-}
-.sp-only {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .pc-only {
-    display: none;
-  }
-  .sp-only {
-    display: inline;
-  }
-}
 
