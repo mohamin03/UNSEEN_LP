@@ -1091,3 +1091,20 @@ body.menu-open {
 
 
 
+/* 最初は常に非表示にしておく */
+.sp-only {
+  display: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+
+/* スマホだけで表示させる（幅が768px以下の時） */
+@media screen and (max-width: 768px) {
+  .sp-only {
+    display: inline;
+  }
+}
+
