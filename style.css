@@ -1146,41 +1146,6 @@ body.menu-open {
   }
 }
 
-@media screen and (max-width: 768px) {
-  /* 全体の文字を少し小さく */
-  html {
-    font-size: 87.5%; /* ≒14px */
-  }
-
-  /* 改行崩れ防止 */
-  body, p, li, .about-text, .faq-item p, .worry-list li {
-    word-break: keep-all;     /* 単語途中の改行を防ぐ */
-    overflow-wrap: break-word;/* 長すぎるURLなどは折る */
-    line-break: strict;       /* 日本語の改行も自然に */
-  }
-
-  /* 文章系を一段階小さくして、詰まり防止 */
-  p, li, .about-text, .faq-item p, .section-subtitle {
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-
-  /* タイトル系は今のままでOK */
-  h1, h2, h3 {
-    word-break: keep-all;
-    line-height: 1.4;
-  }
-
-  /* 特に改行されたくない要素には class="nowrap" を明示しておいてこれで保護 */
-  .nowrap {
-    white-space: nowrap;
-  }
-
-  /* ボタンの中身が折れないように */
-  .youtube-button, .submit-button, .terms-btn {
-    white-space: nowrap;
-  }
-}
 
 
 
