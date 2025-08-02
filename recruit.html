@@ -1,24 +1,37 @@
-<!DOCTYPE html>
-<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UNSEEN｜メンバー募集</title>
+  <title>UNSEEN｜メンバー募集・クリエイター募集</title>
+  <meta name="description" content="UNSEENでは映像・デザイン・撮影などのクリエイティブ分野で活動する仲間を募集中。経験不問。あなたの才能をUNSEENで活かしませんか？" />
+  <meta name="keywords" content="クリエイター募集, 映像制作, 動画編集, 撮影, デザイナー, フリーランス, メンバー募集, UNSEEN" />
+  <link rel="canonical" href="https://あなたのドメイン/recruit.html" />
+
+  <!-- SNS表示用（OGP） -->
+  <meta property="og:title" content="UNSEEN｜メンバー募集・クリエイター募集">
+  <meta property="og:description" content="映像・デザイン・撮影などの分野で活動する仲間を募集。経験不問。成長意欲のある方歓迎！">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://あなたのドメイン/recruit.html">
+  <meta property="og:image" content="https://あなたのドメイン/images/ogp-recruit.jpg"> <!-- OGP画像は任意で -->
+
+  <!-- Twitterカード対応（任意） -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UNSEEN｜メンバー募集・クリエイター募集">
+  <meta name="twitter:description" content="映像・デザイン・撮影などの分野で活動する仲間を募集。経験不問。成長意欲のある方歓迎！">
+  <meta name="twitter:image" content="https://あなたのドメイン/images/ogp-recruit.jpg">
+
+  <!-- CSSとJS -->
   <link rel="stylesheet" href="style.css" />
   <script>
     function toggleMenu() {
       const nav = document.getElementById("navMenu");
       nav.classList.toggle("active");
     }
-
     function openTermsModal() {
       document.getElementById('terms-modal').style.display = 'flex';
     }
-
     function closeTermsModal() {
       document.getElementById('terms-modal').style.display = 'none';
     }
-
     window.addEventListener('click', function (e) {
       const modal = document.getElementById('terms-modal');
       if (e.target === modal) {
@@ -27,6 +40,7 @@
     });
   </script>
 </head>
+
 <body>
 
   <!-- ヘッダー -->

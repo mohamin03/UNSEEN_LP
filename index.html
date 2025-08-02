@@ -28,25 +28,23 @@
 </head>
 <body>
 
-<!-- ヘッダー本体（stickyさせる部分） -->
+<!-- ヘッダー（sticky対応済み） -->
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="header-logo">
       <img src="images/LOGO.png" alt="UNSEEN ロゴ" class="logo-image">
     </a>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav class="site-nav" id="navMenu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.html#about">UNSEENとは</a></li>
+        <li><a href="index.html#services">サービス</a></li>
+        <li><a href="works.html">実績</a></li>
+        <li><a href="index.html#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
   </div>
-<!-- メニュー本体は別に置く -->
-<nav class="site-nav" id="navMenu">
-  <ul>
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="index.html#about">UNSEENとは</a></li>
-    <li><a href="index.html#services">サービス</a></li>
-    <li><a href="works.html">実績</a></li>
-    <li><a href="index.html#contact">お問い合わせ</a></li>
-  </ul>
-</nav>
-
 </header>
 
 
@@ -367,4 +365,3 @@
 
 </body>
 </html>
-
