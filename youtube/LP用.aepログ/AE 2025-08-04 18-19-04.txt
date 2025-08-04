@@ -1,0 +1,27 @@
+プロジェクトﾞLP用.aepﾞのAdobe After Effects v25.3.2 Windows 64レンダリングログ
+
+レンダリングは2025/08/04、 18:19:04に開始しました。
+
+  2025/08/04 18:19:04 : コンポジションﾞ1pageﾞの開始
+
+  出力先 : C:\Users\yt-mr\OneDrive\AppData\デスクトップ\UNSEEN(運用中)\youtube\section\1page.jpg    2025/08/04 18:19:04 : コンポジションﾞ1pageﾞの終了
+
+
+  2025/08/04 18:19:04 : コンポジションﾞ2pageﾞの開始
+
+  出力先 : C:\Users\yt-mr\OneDrive\AppData\デスクトップ\AI塾\footage\2page (0-00-00-00).jpg    2025/08/04 18:19:04 : コンポジションﾞ2pageﾞの終了
+
+
+  2025/08/04 18:19:04 : コンポジションﾞ3pageﾞの開始
+
+  出力先 : C:\Users\yt-mr\OneDrive\AppData\デスクトップ\UNSEEN(運用中)\youtube\section\3page.jpg    2025/08/04 18:19:04 : コンポジションﾞ3pageﾞの終了
+
+
+  2025/08/04 18:19:04 : コンポジションﾞ4pageﾞの開始
+
+  出力先 : C:\Users\yt-mr\OneDrive\AppData\デスクトップ\UNSEEN(運用中)\youtube\section\4page.jpg    2025/08/04 18:19:04 : コンポジションﾞ4pageﾞの終了
+
+
+  合計経過時間 : 0 秒
+ログは2025/08/04、18:19:04に閉じられました。
+
