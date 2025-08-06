@@ -111,4 +111,80 @@ footer small {
   color: #666;
 }
 
+/* みえないタイトル */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* 説明 */
+.plan-description {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.description-box {
+  background-color: rgba(255, 255, 255, 0.9); /* 半透明白背景 */
+  border: 2px solid #ccc;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 720px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.description-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #4B0082; /* UNSEENカラー系に調整OK */
+  text-align: center;
+}
+
+.description-box p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: left;
+}
+
+
+
+
+
+
+/* よくある質問 */
+
+.faq {
+  background-color: #f9f9f9;
+  padding: 3rem 1rem;
+  border-radius: 16px;
+  max-width: 800px;
+  margin: 3rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #4B0082;
+  text-align: center;
+}
+
+.faq dt {
+  font-weight: bold;
+  margin-top: 1.5rem;
+  color: #333;
+}
+
+.faq dd {
+  margin: 0.5rem 0 1rem 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+
 
