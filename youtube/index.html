@@ -1,123 +1,631 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<link rel="icon" href="/favicon.png" type="image/png">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>YOUTUBE動画工房｜料金シミュレーター</title>
+<style>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "YouTubeスタートプラン",
-  "description": "UNSEENが提供するYouTube動画制作・運用サポートプラン。4本15万円で初心者向けに提供。",
-  "brand": {
-    "@type": "Brand",
-    "name": "UNSEEN"
-  },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "JPY",
-    "price": "150000",
-    "availability": "https://schema.org/InStock",
-    "url": "https://unseen-creative.jp/youtube/"
+  :root{
+    --brand:#FF3737; --ink:#0f172a; --muted:#6b7280; --line:#e5e7eb; --bg:#ffffff;
+    --radius:18px; --shadow:0 14px 48px rgba(0,0,0,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#fafafa;color:var(--ink);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif}
+  .topbar{background:var(--brand);color:#fff;padding:18px 16px;font-weight:900;
+    font-size:clamp(18px,4.4vw,36px);letter-spacing:.02em}
+  .container{max-width:960px;margin:0 auto;padding:20px 16px 64px}
+
+/* カード（質問ボックス） */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ←中身を上下中央 */
+  align-items: center;
+  background: var(--bg);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  padding: 40px 24px 72px; /* 下は戻るボタンのための余白 */
+  margin: 40px auto;
+  max-width: 760px;
+  min-height: 60vh; /* ちょっと高めで中央感 */
+  text-align: center; /* 中央寄せ */
+}
+
+.title {
+  font-size: clamp(22px, 5vw, 38px);
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 0 0 24px;
+  font-size: clamp(15px, 3.6vw, 18px);
+}
+
+/* グリッド中央 */
+.grid {
+  display: grid;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 480px;
+}
+
+@media (min-width:520px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
-</script>
+
+/* オプションボタン中央寄せ */
+.option {
+  width: 100%;
+  border: 0;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 14px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .08);
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .1);
+}
+
+/* 戻るボタン位置そのまま */
+.back-wrap {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+}
+
+/* スタートボタン中央 */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 10px;
+}
 
 
-  <!-- ✅ SEO強化済み title -->
-  <title>YouTube動画制作ならUNSEEN｜4本15万円で始めるチャンネル運用サポート</title>
 
-  <!-- ✅ SEOクリック率UP：meta description -->
-  <meta name="description" content="YouTubeを始めたい方必見！UNSEENのスタートプランは、初回4本セットで15万円。動画制作から投稿までまるっとサポート。初心者でも安心の運用サポート付き。" />
 
-  <!-- ✅ URLの正規化 -->
-  <link rel="canonical" href="https://unseen-creative.jp/youtube/" />
 
-  <!-- ✅ 明示的なインデックス許可 -->
-  <meta name="robots" content="index, follow" />
+  .option{
+    width:100%; border:0; background:#fff; border-radius:18px; padding:18px 14px;
+    box-shadow:0 10px 26px rgba(0,0,0,.08);
+    font-size:18px; font-weight:800; color:#111; cursor:pointer;
+    transition:transform .08s ease, box-shadow .08s ease, outline-color .08s ease;
+    outline:2px solid transparent;
+  }
+  .option:active{transform:translateY(1px)}
+  .option:focus-visible{outline-color:rgba(255,55,55,.45)}
+  .option small{display:block;color:var(--muted);font-weight:600;margin-top:4px;font-size:.92rem}
 
-  <link rel="stylesheet" href="style.css" />
+  /* スタートボタン */
+  .btn-primary{
+    display:inline-block; border:0; background:var(--brand); color:#fff; font-weight:900;
+    font-size:18px; padding:14px 20px; border-radius:14px; cursor:pointer;
+    box-shadow:0 10px 24px rgba(255,55,55,.32); transition:transform .08s ease, opacity .2s;
+  }
+  .btn-primary:active{transform:translateY(1px)}
+  .center{display:flex; justify-content:center; align-items:center; margin:22px 0 6px}
+
+  /* 戻る（ボックス左下に固定配置） */
+  .back-wrap{
+    position:absolute; left:16px; bottom:16px; /* ←カードの中で固定 */
+  }
+  .back-btn{
+    background:transparent; border:0; color:#111; font-weight:800; cursor:pointer;
+    display:inline-flex; align-items:center; gap:6px; padding:8px 10px; border-radius:10px;
+  }
+  .back-btn:hover{background:#f1f5f9}
+  .back-btn svg{width:18px;height:18px}
+
+/* === FOOTER (PCでも全幅で表示) === */
+.foot {
+  width: 100%;
+  background: #0b0b0b;
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  padding: clamp(20px, 3vw, 40px);
+  box-sizing: border-box;
+}
+
+.footer-inner {
+  max-width: 1200px; /* ← これでPC幅に広がる */
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.foot a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: clamp(14px, 1.1vw, 18px);
+  transition: opacity 0.2s ease;
+}
+
+.foot a:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: clamp(12px, 1vw, 15px);
+  color: #ccc;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* === FOOTER: 強制フルブリード & PC最適化 === */
+@media (min-width: 1024px) {
+  .foot {
+    padding: 48px 0;
+  }
+  /* ← これを縦並びに戻す */
+  .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .foot a {
+    font-size: 18px;
+  }
+}
+
+.foot a:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: clamp(12px, 1vw, 15px);
+  color: #ccc;
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+  .foot {
+    padding: 48px 0;
+  }
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .foot a {
+    font-size: 18px;
+  }
+}
+
+/* --- フッター縦並び強制 --- */
+.footer-inner {
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+
+
+  /* トランジション */
+  .step{display:none; opacity:0; transform:translateY(6px); transition:opacity .18s ease, transform .18s ease}
+  .step.active{display:block; opacity:1; transform:translateY(0)}
+
+
+/* スタート画面だけ中央揃え（他STEPを押し下げない） */
+
+
+
+#start .title {
+  margin-bottom: 10px;
+}
+
+#start .lead {
+  margin-bottom: 24px;
+}
+
+#start .btn-primary {
+  font-size: 20px;
+  padding: 16px 28px;
+}
+
+#start.active {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;   /* ← 100vh → 70vh に変更（余白を減らす） */
+  margin: 40px auto;  /* ← ちょっとだけ上下の余白を確保 */
+}
+
+/* STEP表示（上部小見出し） */
+.step-indicator {
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--brand);
+  background: #ffeaea;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+#total {
+  background: #e8f4ff; /* 薄い青背景 */
+  border: 2px solid #c8e0ff; /* 枠線も淡い青 */
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 24px;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #0f172a; /* 濃いめの文字色 */
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+
+
+
+
+</style>
 </head>
 <body>
+  <header class="topbar">YOUTUBE動画工房</header>
+  <main class="container">
+    <!-- START -->
+    <section id="start" class="card step active" aria-labelledby="ttl-start">
+      <h1 id="ttl-start" class="title">料金シミュレーター</h1>
+      <p class="lead">質問に答えて概算見積を出せます。</p>
+      <div class="center">
+        <button id="start-btn" class="btn-primary" aria-label="シミュレーションを開始する">シミュレーションを開始する</button>
+      </div>
+    </section>
 
-<header class="site-header">
-  <div class="header-inner">
-    <h1 class="logo">UNSEEN</h1>
-    <!-- ナビゲーションは後で追加もOK -->
+    <!-- STEP1 -->
+    <section id="step1" class="card step" aria-labelledby="ttl-1">
+<div class="step-indicator">STEP 1 / 5</div>
+      <h2 id="ttl-1" class="title">依頼内容は？</h2>
+      <p class="lead">該当する項目を選んでください。</p>
+      <div class="grid" role="group" aria-label="依頼内容の選択肢">
+        <button class="option" data-value="edit_only" data-next="step3">
+          編集のみ
+          <small>Edit only</small>
+        </button>
+        <button class="option" data-value="shoot_edit" data-next="step2">
+          撮影＋編集
+          <small>Shooting + Editing</small>
+        </button>
+      </div>
+      <div class="back-wrap"><button class="back-btn" data-back>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 戻る
+      </button></div>
+    </section>
+
+    <!-- STEP2 -->
+    <section id="step2" class="card step" aria-labelledby="ttl-2">
+<div class="step-indicator">STEP 2 / 5</div>
+      <h2 id="ttl-2" class="title">撮影時間の目安は？</h2>
+      <p class="lead">現時点の想定でOKです。</p>
+      <div class="grid" role="group" aria-label="撮影時間の選択肢">
+        <button class="option" data-value="shoot_lt2h" data-next="step3">2時間未満</button>
+        <button class="option" data-value="shoot_lt4h" data-next="step3">4時間未満</button>
+        <button class="option" data-value="shoot_over" data-next="step3">それ以上</button>
+        <button class="option" data-value="shoot_unknown" data-next="step3">わからない</button>
+      </div>
+      <div class="back-wrap"><button class="back-btn" data-back>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 戻る
+      </button></div>
+    </section>
+
+    <!-- STEP3 -->
+    <section id="step3" class="card step" aria-labelledby="ttl-3">
+<div class="step-indicator">STEP 3 / 5</div>
+      <h2 id="ttl-3" class="title">動画の完成尺の長さは？</h2>
+      <p class="lead">おおよその長さを選択してください。</p>
+      <div class="grid" role="group" aria-label="完成尺の選択肢">
+        <button class="option" data-value="len_5" data-next="step4">5分以内</button>
+        <button class="option" data-value="len_15" data-next="step4">15分以内</button>
+        <button class="option" data-value="len_25" data-next="step4">25分以内</button>
+        <button class="option" data-value="len_over" data-next="step4">それ以上</button>
+        <button class="option" data-value="len_unknown" data-next="step4">わからない</button>
+      </div>
+      <div class="back-wrap"><button class="back-btn" data-back>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 戻る
+      </button></div>
+    </section>
+
+<!-- STEP4（変更点：data-next を result → step5 に） -->
+<section id="step4" class="card step" aria-labelledby="ttl-4">
+  <div class="step-indicator">STEP 4 / 5</div>
+  <h2 id="ttl-4" class="title">BGMやSE（効果音）<br>その他素材はありますか？</h2>
+  <p class="lead">※「いいえ」はこちらで用意する想定です。</p>
+  <div class="grid" role="group" aria-label="素材の有無">
+    <button class="option" data-value="assets_yes" data-next="step5">はい</button>
+    <button class="option" data-value="assets_no" data-next="step5">いいえ<br>（用意してほしい）</button>
   </div>
-</header>
+  <div class="back-wrap"><button class="back-btn" data-back>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 戻る
+  </button></div>
+</section>
 
-<main>
+<!-- STEP5：納期設定（新規追加） -->
+<section id="step5" class="card step" aria-labelledby="ttl-5">
+  <div class="step-indicator">STEP 5 / 5</div>
+  <h2 id="ttl-5" class="title">納期はいつ頃ですか？</h2>
+  <p class="lead">希望納期を選択してください。</p>
+  <div class="grid" role="group" aria-label="納期の選択肢">
+    <button class="option" data-value="deadline_3d" data-next="result">3日以内（+30%）</button>
+    <button class="option" data-value="deadline_1w" data-next="result">1週間以内（+20%）</button>
+    <button class="option" data-value="deadline_2w" data-next="result">2週間以内（追加なし）</button>
+    <button class="option" data-value="deadline_unknown" data-next="result">わからない</button>
+  </div>
+  <div class="back-wrap"><button class="back-btn" data-back>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 戻る
+  </button></div>
+</section>
 
-  <!-- ✅ SEOキーワード含むh1に強化 -->
-<h1 class="visually-hidden">YouTubeチャンネル立ち上げを4本15万円でまるっとサポート【UNSEENのスタートプラン】</h1>
 
+<!-- RESULT -->
+<section id="result" class="card step" aria-labelledby="ttl-r">
+  <h2 id="ttl-r" class="title">回答の確認</h2>
+  <p class="lead">※ここに概算見積の計算＆表示を入れる予定。</p>
 
+  <!-- 概要と金額 -->
+  <div id="summary" style="margin:10px 6px 0; line-height:1.9"></div>
+  <div id="total" style="margin-top:20px; font-weight:900; font-size:1.4rem;"></div>
 
-<div class="wrapper">
-  <img src="section/1page.jpg" alt="UNSEENのYouTubeスタートプランの紹介バナー。初心者向け動画制作サポートの概要を表現" loading="lazy" />
-  <img src="section/2page.jpg" alt="YouTube初心者でも安心して始められる撮影・編集サポートの説明" loading="lazy" />
-  <img src="section/3page.jpg" alt="YouTube運用で最初の4本が重要であることを強調する構成図" loading="lazy" />
-  <img src="section/4page.jpg" alt="プラン継続や追加オプションに柔軟対応できる仕組みの図解" loading="lazy" />
-  <img src="section/5page.jpg" alt="UNSEENスタートプランの追加メリットを示すアピール画像" loading="lazy" />
-  <img src="section/6page.jpg" alt="UNSEENとの連携によるコストダウンと高品質の両立をアピール" loading="lazy" />
+  <!-- ▼ ここにフォームを追加 -->
+  <form action="https://formcarry.com/s/6L8bvQcGS_F" method="POST" accept-charset="UTF-8" id="contact-form" style="margin-top:40px;">
+    <h3 style="font-size:1.4rem; font-weight:900; margin-bottom:12px;">この内容で問い合わせる</h3>
+
+    <label>お名前<span style="color:#FF3737;">*</span><br>
+      <input type="text" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;">
+    </label><br><br>
+
+    <label>メールアドレス<span style="color:#FF3737;">*</span><br>
+      <input type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;">
+    </label><br><br>
+
+    <label>電話番号（任意）<br>
+      <input type="tel" name="phone" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;">
+    </label><br><br>
+
+    <label>その他質問事項などあればご記入ください<br>
+      <textarea name="message" rows="4" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ccc;"></textarea>
+    </label><br><br>
+
+    <!-- hiddenで結果を送る -->
+    <input type="hidden" name="simulation_result" id="form-simulation-result">
+
+    <button type="submit" style="
+      background:#FF3737; color:#fff; font-weight:900;
+      border:0; border-radius:10px; padding:14px 24px;
+      font-size:1.1rem; cursor:pointer; box-shadow:0 6px 16px rgba(255,55,55,.3);
+    ">
+      送信する
+    </button>
+  </form>
+  <!-- ▲ フォームはここまで -->
+
+  <!-- 戻るボタンはその下 -->
+  <div class="back-wrap">
+    <button class="back-btn" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg> 戻る
+    </button>
+  </div>
+<!-- もう一度シミュレーション -->
+<div class="center" style="margin-top: 40px;">
+  <button id="restart-btn" class="btn-primary">もう一度シミュレーションする</button>
 </div>
 
-
-  <div class="unseen-button">
-    <a href="https://mohamin03.github.io/UNSEEN_LP/" target="_blank">UNSEENのサイトを見る</a>
-  </div>
-
-</main>
-
-<section class="plan-description">
-  <div class="description-box">
-    <h2>📦 YouTubeスタートプランとは？</h2>
-    <p>
-      UNSEENの「YouTubeスタートプラン」は、これからYouTubeを始めたい方のための動画制作・運用サポートサービスです。企画、撮影、編集、サムネイル作成までをまるっとサポートし、4本15万円の安心価格で提供。初めてのチャンネル運用でも、プロが伴走することで迷わずスタートできます。
-    </p>
-  </div>
 </section>
-
-
-<section class="faq">
-  <h2>よくあるご質問</h2>
-  <dl>
-    <div>
-      <dt>Q. 撮影はどこで行いますか？</dt>
-      <dd>A. 基本的には都内近郊で対応しています。遠方の場合はご相談ください。</dd>
-    </div>
-    <div>
-      <dt>Q. サムネイルも作ってもらえますか？</dt>
-      <dd>A. はい、全プランにサムネイル制作が含まれています。</dd>
-    </div>
-    <div>
-      <dt>Q. 納品までどれくらいかかりますか？</dt>
-      <dd>A. 通常、撮影から納品まで1〜2週間程度が目安です。</dd>
-    </div>
-    <div>
-      <dt>Q. YouTubeのアカウントをまだ持っていないのですが…</dt>
-      <dd>A. アカウント開設から運用のアドバイスまでサポート可能です！</dd>
-    </div>
-  </dl>
-</section>
+ 
 
 
 
-
-
-
-
-<footer>
-  <p>ご相談・お問合せはLINEでお気軽に</p>
-  <div class="line-button">
-    <a href="https://lin.ee/piIQ59g" target="_blank">LINEで相談する</a>
+<footer class="foot">
+  <div class="footer-inner">
+    <a href="https://unseen-creative.jp/" target="_blank" rel="noopener noreferrer">
+      @UNSEEN 公式サイトへ
+    </a>
+    <p class="copyright">© 2025 UNSEEN Creative. All rights reserved.</p>
   </div>
-  <small>&copy; 2025 UNSEEN All rights reserved.</small>
 </footer>
 
+
+
+
+<script>
+(() => {
+  const $ = sel => document.querySelector(sel);
+  const steps = ["start","step1","step2","step3","step4","step5","result"];
+  const answers = {};              // 選択結果を保存
+  const historyStack = [];         // 戻る用
+
+function show(id){
+  steps.forEach(s => {
+    const el = $("#"+s);
+    if(!el) return;
+    if(s===id){
+      el.classList.add("active");
+      el.setAttribute("aria-hidden","false");
+    } else {
+      el.classList.remove("active");
+      el.setAttribute("aria-hidden","true");
+    }
+  });
+  // ← ここが重要（切替のたびに先頭へ）
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+}
+
+
+
+  // スタート
+  $("#start-btn").addEventListener("click", () => {
+    historyStack.push("start");
+    show("step1");
+  });
+
+  // すべてのオプションにクリックを設定
+  document.querySelectorAll(".option").forEach(btn => {
+    btn.addEventListener("click", e => {
+      const cur = e.target.closest(".step").id;
+      const value = btn.dataset.value;
+      const next = btn.dataset.next;
+
+// 「わからない」を選択した場合に注意メッセージを表示
+if (value === "shoot_unknown" || value === "len_unknown" || value === "deadline_unknown") {
+  alert("「わからない」を選択した場合、概算見積は算出できません。");
+}
+
+
+
+      // 保存
+      answers[cur] = value;
+
+      // 分岐（STEP1だけ特別：編集のみ→STEP3 / 撮影＋編集→STEP2）
+      let dest = next;
+      if(cur==="step1"){
+        dest = (value==="edit_only") ? "step3" : "step2";
+      }
+
+      historyStack.push(cur);
+      show(dest);
+
+      // 結果画面の時は要約を表示
+      if(dest==="result"){
+        renderSummary();
+
+      }
+    });
+  });
+
+  // 戻る
+  document.querySelectorAll("[data-back]").forEach(b => {
+    b.addEventListener("click", () => {
+      const prev = historyStack.pop(); // 直前
+      const dest = prev || "start";
+      show(dest);
+    });
+  });
+
+  // 結果の要約（まずは文言のみ）
+  function renderSummary(){
+    const map = {
+      step1:{
+        edit_only:"編集のみ",
+        shoot_edit:"撮影＋編集"
+      },
+      step2:{
+        shoot_lt2h:"2時間未満",
+        shoot_lt4h:"4時間未満",
+        shoot_over:"それ以上",
+        shoot_unknown:"わからない"
+      },
+      step3:{
+        len_5:"5分以内",
+        len_15:"15分以内",
+        len_25:"25分以内",
+        len_over:"それ以上",
+        len_unknown:"わからない"
+      },
+      step4:{
+        assets_yes:"はい",
+        assets_no:"いいえ（用意してほしい）"
+      }
+    };
+    const lines = [];
+    if(answers.step1) lines.push("依頼内容：<b>"+(map.step1[answers.step1]||"-")+"</b>");
+    if(answers.step2) lines.push("撮影時間：<b>"+(map.step2[answers.step2]||"-")+"</b>");
+    if(answers.step3) lines.push("完成尺　：<b>"+(map.step3[answers.step3]||"-")+"</b>");
+    if(answers.step4) lines.push("素材の有無：<b>"+(map.step4[answers.step4]||"-")+"</b>");
+    $("#summary").innerHTML = lines.join("<br>");
+// ▼ 概算見積ロジック
+let total = 0;
+
+// 「わからない」を選んでいたら算出不可にする
+const hasUnknown =
+  answers.step2 === "shoot_unknown" ||
+  answers.step3 === "len_unknown"  ||
+  answers.step5 === "deadline_unknown";
+
+if (hasUnknown) {
+  $("#total").innerHTML =
+    "概算金額：<b>算出不可</b><br><span style='color:#FF3737;font-weight:700;'>※「わからない」を選択した場合<br>概算見積は表示できません。<br>お気軽にお問い合わせください。</span>";
+  return;
+}
+
+// 依頼内容
+if (answers.step1 === "edit_only") total += 8000;      // 編集のみ
+if (answers.step1 === "shoot_edit") total += 20000;    // 撮影＋編集
+
+// 完成尺（追加分）
+if (answers.step3 === "len_15") total += 8000;
+if (answers.step3 === "len_25") total += 16000;
+if (answers.step3 === "len_over") total += 32000;
+
+// 素材の有無（用意してほしい → コスト追加）
+if (answers.step4 === "assets_no") total += 3000;
+
+// 納期倍率（STEP5）
+let multiplier = 1;
+if (answers.step5 === "deadline_3d") multiplier = 1.3;
+if (answers.step5 === "deadline_1w") multiplier = 1.2;
+// deadline_2w は倍率1のまま
+
+const finalTotal = Math.round(total * multiplier);
+
+$("#total").innerHTML =
+  "概算金額：<b>¥" + finalTotal.toLocaleString() + "</b>（税別）";
+
+  // ▼ フォームのhidden欄に結果をまとめて送る
+  const formField = document.getElementById("form-simulation-result");
+  if (formField) {
+    formField.value =
+      lines.join("\n") +
+      "\n概算金額：" +
+      (hasUnknown ? "算出不可" : "¥" + finalTotal.toLocaleString() + "（税別）");
+  }
+
+
+// ▲ ここまで概算見積ロジック
+
+  // 🔁 もう一度シミュレーション
+  const restartBtn = document.getElementById("restart-btn");
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => {
+      // 答え・履歴リセット
+      for (let key in answers) delete answers[key];
+      historyStack.length = 0;
+      show("step1");
+    });
+  }
+
+
+  }
+})();
+
+</script>
 </body>
 </html>
