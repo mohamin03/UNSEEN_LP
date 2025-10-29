@@ -532,34 +532,21 @@ if (value === "shoot_unknown" || value === "len_unknown" || value === "deadline_
 
   // 結果の要約（まずは文言のみ）
   function renderSummary(){
-    const map = {
-      step1:{
-        edit_only:"編集のみ",
-        shoot_edit:"撮影＋編集"
-      },
-      step2:{
-        shoot_lt2h:"2時間未満",
-        shoot_lt4h:"4時間未満",
-        shoot_over:"それ以上",
-        shoot_unknown:"わからない"
-      },
-      step3:{
-        len_5:"5分以内",
-        len_15:"15分以内",
-        len_25:"25分以内",
-        len_over:"それ以上",
-        len_unknown:"わからない"
-      },
-      step4:{
-        assets_yes:"はい",
-        assets_no:"いいえ（用意してほしい）"
-      }
-    };
+const map = {
+  step1:{ edit_only:"編集のみ", shoot_edit:"撮影＋編集" },
+  step2:{ shoot_lt2h:"2時間未満", shoot_lt4h:"4時間未満", shoot_over:"それ以上", shoot_unknown:"わからない" },
+  step3:{ len_5:"5分以内", len_15:"15分以内", len_25:"25分以内", len_over:"それ以上", len_unknown:"わからない" },
+  step4:{ assets_yes:"はい", assets_no:"いいえ（用意してほしい）" },
+  step5:{ deadline_3d:"3日以内（+30%）", deadline_1w:"1週間以内（+20%）", deadline_2w:"2週間以内（追加なし）", deadline_unknown:"わからない" }
+};
+
     const lines = [];
     if(answers.step1) lines.push("依頼内容：<b>"+(map.step1[answers.step1]||"-")+"</b>");
     if(answers.step2) lines.push("撮影時間：<b>"+(map.step2[answers.step2]||"-")+"</b>");
     if(answers.step3) lines.push("完成尺　：<b>"+(map.step3[answers.step3]||"-")+"</b>");
     if(answers.step4) lines.push("素材の有無：<b>"+(map.step4[answers.step4]||"-")+"</b>");
+    if(answers.step5) lines.push("納期　　　：<b>"+(map.step5[answers.step5]||"-")+"</b>");
+
     $("#summary").innerHTML = lines.join("<br>");
 // ▼ 概算見積ロジック
 let total = 0;
@@ -596,8 +583,24 @@ if (answers.step5 === "deadline_1w") multiplier = 1.2;
 
 const finalTotal = Math.round(total * multiplier);
 
-$("#total").innerHTML =
-  "概算金額：<b>¥" + finalTotal.toLocaleString() + "</b>（税別）";
+// ▼ 割引前の金額を表示
+let html = "概算金額：<b>¥" + finalTotal.toLocaleString() + "</b>（税別）";
+
+// ▼ 割引20%オフの計算
+const discounted = Math.round(finalTotal * 0.8);
+
+// ▼ 割引表示を追加（赤文字・太字・大きめ）
+html += `
+  <div style="margin-top:16px; color:#FF3737; font-weight:900; font-size:1.6rem;">
+    今なら20％OFF！
+  </div>
+  <div style="margin-top:6px; color:#FF3737; font-weight:900; font-size:2rem;">
+    割引後金額：¥${discounted.toLocaleString()}（税別）
+  </div>
+`;
+
+$("#total").innerHTML = html;
+
 
   // ▼ フォームのhidden欄に結果をまとめて送る
   const formField = document.getElementById("form-simulation-result");
