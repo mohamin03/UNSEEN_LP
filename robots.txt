@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unseen-creative.jp/sitemap.xml
