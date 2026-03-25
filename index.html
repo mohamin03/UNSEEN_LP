@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNSEEN</title>
+  <meta name="description" content="UNSEEN | まだ見ぬ才能と作る、最高の一本。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">UNSEEN</a>
+    <nav class="nav">
+      <a href="about.html">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <video autoplay muted loop playsinline class="hero-video" poster="images/hero-poster.jpg">
+        <source src="videos/HERO.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <h1>
+          まだ見ぬ才能と作る<br />
+          最高の一本。
+        </h1>
+
+        <div class="hero-buttons">
+          <a href="#work" class="btn">Work</a>
+          <a href="#contact" class="btn btn-outline">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="business">
+  <div class="section-inner">
+    <h2 class="section-title fade-up">Our Business</h2>
+
+    <div class="business-grid">
+
+      <div class="business-item fade-up">
+        <img src="images/web.png" alt="Web制作">
+        <h3>WEB制作</h3>
+        <p>
+          LP・ホームページ制作を通して、<br>
+          伝わる導線を設計します。
+        </p>
+      </div>
+
+      <div class="business-item fade-up">
+        <img src="images/movie.png" alt="映像制作">
+        <h3>映像制作</h3>
+        <p>
+          プロモーション動画やSNS動画など、<br>
+          魅力を引き出す映像を制作します。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <section id="work" class="work">
+      <div class="section-inner">
+        <h2 class="section-title fade-up">Work</h2>
+
+        <div class="work-grid">
+          <a href="work1.html" class="work-card fade-up">
+            <div class="work-image">
+              <img src="images/work1.jpg" alt="AlphaPeak Promotion Video" />
+            </div>
+
+            <div class="work-text">
+              <h3>AlphaPeak</h3>
+              <p>商品プロモーション動画</p>
+            </div>
+          </a>
+
+         <a href="https://youtu.be/GCy8kUoNvlM?si=zZ3vlpX4ibOu2KUH" 
+   class="work-card fade-up" 
+   target="_blank" 
+   rel="noopener">
+  <div class="work-image">
+    <img src="images/work2.jpg" alt="Jazz Bar Brand Film" />
+  </div>
+  <div class="work-text">
+    <h3>Jazz Bar</h3>
+    <p>店舗紹介動画</p>
+  </div>
+</a>
+
+          <a href="https://www.bears-co.jp/lp/fukunotori/kayabacho/" class="work-card fade-up">
+            <div class="work-image">
+              <img src="images/work3.jpg" alt="Interview Project YouTube Production" />
+            </div>
+            <div class="work-text">
+              <h3>ふくの鳥　茅場町店</h3>
+              <p>飲食店LP</p>
+            </div>
+          </a>
+
+          <a href="work4.html" class="work-card fade-up">
+            <div class="work-image">
+              <img src="images/work4.jpg" alt="Idol Documentary" />
+            </div>
+            <div class="work-text">
+              <h3>Documentary</h3>
+              <p>Documentary Film</p>
+            </div>
+          </a>
+        </div>
+
+<div class="work-more fade-up">
+  <a href="work.html" class="btn-dark">Other Work</a>
+</div>
+
+
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <p class="contact-label">Contact</p>
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="contact-description">
+          制作のご相談・ご依頼はこちらからご連絡ください。
+        </p>
+
+        <form action="https://formcarry.com/s/6L8bvQcGS_F" method="POST" accept-charset="UTF-8" class="contact-form">
+          <div class="form-group">
+            <label for="name">お名前<span class="required">*</span></label>
+            <input type="text" id="name" name="お名前" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">メールアドレス<span class="required">*</span></label>
+            <input type="email" id="email" name="メールアドレス" required>
+          </div>
+
+          <div class="form-group">
+            <label for="category">要件<span class="required">*</span></label>
+            <select id="category" name="要件" required>
+              <option value="">選択してください</option>
+              <option value="制作依頼">制作依頼</option>
+              <option value="相談したい">相談したい</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">簡単な概要（任意）</label>
+            <textarea id="message" name="概要" rows="6"></textarea>
+          </div>
+
+          <button type="submit" class="submit-button">送信する</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">UNSEEN</div>
+    <p class="footer-copy">© UNSEEN</p>
+  </div>
+</footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    fadeEls.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

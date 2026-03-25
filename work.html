@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Work | UNSEENの制作実績</title>
+  <meta name="description" content="UNSEENの制作実績一覧。商品プロモーション動画、店舗紹介動画、飲食店LP、ドキュメンタリー映像などを掲載しています。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://unseen-creative.jp/work.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Work | UNSEENの制作実績" />
+  <meta property="og:description" content="UNSEENの映像制作・WEB制作の実績一覧ページです。" />
+  <meta property="og:url" content="https://unseen-creative.jp/work.html" />
+  <meta property="og:site_name" content="UNSEEN" />
+  <meta property="og:image" content="https://unseen-creative.jp/images/ogp.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Work | UNSEENの制作実績" />
+  <meta name="twitter:description" content="UNSEENの映像制作・WEB制作の実績一覧ページです。" />
+  <meta name="twitter:image" content="https://unseen-creative.jp/images/ogp.jpg" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="about-page">
+  <header class="site-header">
+    <a href="index.html" class="logo">UNSEEN</a>
+    <nav class="nav">
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <p class="page-label fade-up">Work</p>
+        <h1 class="fade-up">制作実績</h1>
+        <p class="about-lead fade-up">
+          商品プロモーション動画、店舗紹介動画、LP制作など、
+          UNSEENがこれまで手がけた実績を掲載しています。
+        </p>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="section-inner">
+        <div class="work-grid">
+          <a href="work.html" class="work-card fade-up">
+            <div class="work-image">
+              <img src="images/work1.jpg" alt="AlphaPeakの商品プロモーション動画実績サムネイル" />
+            </div>
+            <div class="work-text">
+              <h3>AlphaPeak</h3>
+              <p>商品プロモーション動画</p>
+            </div>
+          </a>
+
+          <a href="https://youtu.be/GCy8kUoNvlM?si=zZ3vlpX4ibOu2KUH" class="work-card fade-up" target="_blank" rel="noopener">
+            <div class="work-image">
+              <img src="images/work2.jpg" alt="Jazz Barの店舗紹介動画実績サムネイル" />
+            </div>
+            <div class="work-text">
+              <h3>Jazz Bar</h3>
+              <p>店舗紹介動画</p>
+            </div>
+          </a>
+
+          <a href="https://www.bears-co.jp/lp/fukunotori/kayabacho/" class="work-card fade-up" target="_blank" rel="noopener">
+            <div class="work-image">
+              <img src="images/work3.jpg" alt="ふくの鳥 茅場町店の飲食店LP制作実績サムネイル" />
+            </div>
+            <div class="work-text">
+              <h3>ふくの鳥 茅場町店</h3>
+              <p>飲食店LP</p>
+            </div>
+          </a>
+
+          <a href="work.html" class="work-card fade-up">
+            <div class="work-image">
+              <img src="images/work4.jpg" alt="ドキュメンタリー映像制作実績サムネイル" />
+            </div>
+            <div class="work-text">
+              <h3>Documentary</h3>
+              <p>Documentary Film</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© UNSEEN</p>
+  </footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    fadeEls.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
