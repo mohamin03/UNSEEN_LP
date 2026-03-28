@@ -678,3 +678,160 @@ a {
   background: #111111;
   color: #ffffff;
 }
+
+
+
+.news {
+  padding: 100px 20px;
+  background: #111;
+  color: #fff;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.news-item {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+.news-item:hover {
+  opacity: 0.7;
+}
+
+.news-date {
+  min-width: 110px;
+  font-size: 14px;
+  color: #aaa;
+  padding-top: 4px;
+}
+
+.news-content h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.news-content p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.news-link {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.news-link a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 3px;
+}
+
+@media (max-width: 768px) {
+  .news-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .news-date {
+    min-width: auto;
+    padding-top: 0;
+  }
+
+  .news-content h3 {
+    font-size: 18px;
+  }
+}
+
+
+
+/* =========================
+NEWS PAGE
+========================= */
+
+.news-page {
+  padding: 120px 20px 80px;
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.news-detail {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.news-detail:last-child {
+  border-bottom: none;
+}
+
+.news-detail .news-date {
+  color: #111;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.news-detail h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.news-detail p {
+  line-height: 1.9;
+  color: #111;
+  font-size: 15px;
+}
+
+/* hoverアンカー移動の余白対策 */
+.news-detail {
+  scroll-margin-top: 120px;
+}
+
+
+/* =========================
+スマホ対応
+========================= */
+
+@media (max-width: 768px) {
+
+  .news-page {
+    padding: 100px 20px 60px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .news-detail h2 {
+    font-size: 20px;
+  }
+
+  .news-detail p {
+    font-size: 14px;
+  }
+
+}
+
